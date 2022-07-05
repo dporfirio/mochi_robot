@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!--=======-->
+  <!--=======-->
+  <!--create2-->
+  <!--include file="$(find create_bringup)/launch/create_2.launch"/-->
+  <arg name="config" default="$(find create_bringup)/config/default.yaml" />
+  <arg name="desc" default="true" />
+
+  <node name="create_driver" pkg="create_driver" type="create_driver" output="screen">
+    <remap from="odom" to="odom_orig"/>
+    <rosparam command="load" file="$(arg config)" />
+    <param name="robot_model" value="CREATE_2" />
+    <param name="odom_frame" value="odom" />
+    <param name="publish_tf" value="false" />
+  </node>
+
+  <!-- Robot description -->
+  <include if="$(arg desc)" file="$(find create_description)/launch/create_2.launch" />
+  
+  <!--=====--> 
+  <!--=====-->
+  <!--lidar-->
+  <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+</launch>

@@ -1,4 +1,8 @@
-Mochi Robot
+# Mochi Robot
+
+This is a guide for assembling the mochi robot. Once the robot has been successfully set up, the following supplementary guides may be followed:
+
+- [**Navigation**][https://github.com/dporfirio/create2]
 
 # Prerequisites
 
